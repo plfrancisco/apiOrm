@@ -1,66 +1,72 @@
 # API ORM
 
-Base de estudo de **Prisma ORM** com TypeScript e MySQL, com o modelo `Alunos` e a migration inicial já configurados.
+![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![status](https://img.shields.io/badge/status-em%20andamento-yellow)
 
-Projeto da disciplina de Banco de Dados Não Relacional do 3° semestre de Tecnologia em Sistemas para Internet (TSI).
+Base de estudo de Prisma ORM com TypeScript e MySQL, desenvolvida na
+disciplina de Banco de Dados Não Relacional do 3° semestre de Tecnologia em
+Sistemas para Internet (TSI). Por enquanto o projeto contém a configuração
+do Prisma, o modelo de dados e a migration inicial; as rotas da API ainda
+não foram implementadas.
 
-> **Status:** em desenvolvimento. Por enquanto o projeto contém a configuração do Prisma, o modelo de dados e a migration; as rotas da API ainda não foram implementadas.
+## Sumário
 
-## Tecnologias
+- [Visão geral](#visão-geral)
+- [Estrutura do projeto](#estrutura-do-projeto)
+- [Como executar](#como-executar)
+- [Stack técnica](#stack-técnica)
+- [Autor](#autor)
 
-- [Node.js](https://nodejs.org/) + [TypeScript](https://www.typescriptlang.org/)
-- [Prisma ORM 7](https://www.prisma.io/) com adapter MariaDB
-- MySQL
-- [tsx](https://tsx.is/)
+## Visão geral
 
-## Pré-requisitos
-
-- Node.js 20 ou superior
-- MySQL em execução
-
-## Como executar
-
-```bash
-# 1. Instalar as dependências
-npm install
-
-# 2. Configurar o ambiente
-cp .env.example .env   # ajuste a DATABASE_URL com seus dados do MySQL
-
-# 3. Aplicar a migration e gerar o Prisma Client
-npx prisma migrate dev
-npx prisma generate
-```
-
-## Variáveis de ambiente
-
-| Variável | Descrição | Exemplo |
-| --- | --- | --- |
-| `DATABASE_URL` | String de conexão com o MySQL | `mysql://usuario:senha@localhost:3306/apiorm` |
-
-## Modelo de dados
-
-**Alunos**
+**Modelo `Alunos`**
 
 | Campo | Tipo | Observações |
-| --- | --- | --- |
+|---|---|---|
 | `id` | Int | Chave primária, autoincremento |
 | `nome` | String | |
 | `email` | String | Único |
 | `idade` | Int | |
 | `criadoEm` | DateTime | Preenchido automaticamente |
 
-## Estrutura
+## Estrutura do projeto
 
-```text
+```
 apiOrm/
 ├── prisma/
 │   ├── migrations/
 │   └── schema.prisma
-├── prisma.ts          # instância do Prisma Client
-└── prisma7.config.ts
+├── prisma.ts            # instância do Prisma Client
+├── prisma7.config.ts
+└── .env.example
 ```
+
+## Como executar
+
+Pré-requisitos: Node.js 20+ e MySQL em execução.
+
+```bash
+git clone https://github.com/plfrancisco/apiOrm.git
+cd apiOrm
+
+# Instalar dependências
+npm install
+
+# Configurar o ambiente (ajuste a DATABASE_URL)
+cp .env.example .env
+
+# Aplicar a migration e gerar o Prisma Client
+npx prisma migrate dev
+npx prisma generate
+```
+
+## Stack técnica
+
+Node.js · TypeScript · Prisma ORM 7 · MySQL · tsx
 
 ## Autor
 
-Pedro Lucas Francisco de Almeida
+**Pedro Lucas Francisco**
